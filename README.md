@@ -48,9 +48,9 @@ They are used in Algeria, Tunisia, Morocco and Mauritania. However, they are als
 
 > 0 1 2 3 4 5 6 7 8 9
 
-### Numeral Options
+### Numerals Options
 
-You can use the eastern or the western Arabic numeral regardless of the month names group you use. As demonstrated below, there is always a default numerals' type depending on the method used.
+You can use the eastern or the western Arabic numerals regardless of the month names group you use. As demonstrated below, there is always a default numerals' type depending on the method used.
 
 ## Installation
 
@@ -97,8 +97,8 @@ print(syria_date_fromat_easter) # output ١٦ آب ١٩٨٠
 > In order for the arabic date to appear properly especially, if it uses western arabic numeral the direction of the text in the interface you are using must be `right to left`. If you insert the date into an `HTML` elemnt set text direction to `rtl`. If the text direction in the whole `HTML` document is set `rtl` you should be OK.
 
 ```html
-<p style="dir" ="rtl">16 آب 1980</p>
-<p style="dir" ="rtl">16 أوت 1980</p>
+<p style="dir: rtl">16 آب 1980</p>
+<p style="dir: rtl">16 أوت 1980</p>
 ```
 
 > The resut will look like this:
@@ -108,7 +108,7 @@ print(syria_date_fromat_easter) # output ١٦ آب ١٩٨٠
 
 #### A dual date name method
 
-It's very common that two month names are used at the same time to display the date, with the second one put between parentheses, like this:
+It's very common that two month names are used at the same time to display the date in arabic with the second one put between parentheses, like this:
 
 > <p style=dir=rtl>16 آب (أغسطس) 1980</p>
 > <p style=dir=rtl>١٦ آب (أغسطس) ١٩٨٠</p>
@@ -123,7 +123,7 @@ from arabic_datetime import Arabic_Date
 dt = datetime.date(1980, 8, 16)
 arabic_date = Arabic_Date(dt)
 
-# Use the dual_names() method to create Arabic date string that shows two names of the month.
+# Use the dual_names() method to return Arabic date string that shows two names of the month.
 # This method takes 3 arguments: 2 strings for the month group names  (the second one
 # will be put between parentheses), and a boolean to determine whether to format the
 # Arabic date with the Eastern Numerals or not:
@@ -149,7 +149,7 @@ print(dual_date_sy_ro) # output ١٦ آب (أغسطس) ١٩٨٠
 "french" : For French names
 ```
 
-#### A method that takes the country code to return the corresponding date format
+#### A method that takes a country code to return the corresponding date format
 
 ```python
 import datetime
@@ -230,8 +230,8 @@ print(arabic_time.time("HM", "/")) # output ١٢/٣٠
 > As explained above, make sure that the direction of the text in which the Arabic time is inserted is `right to left`.
 
 ```html
-<p style="dir" ="rtl">١٢:٣٠:٤٥</p>
-<p style="dir" ="rtl">الساعة حالياً: ١٢:٣٠:٤٥</p>
+<p style="dir: rtl">١٢:٣٠:٤٥</p>
+<p style="dir: rtl">الساعة حالياً: ١٢:٣٠:٤٥</p>
 ```
 
 > The resut will look like this:
