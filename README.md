@@ -12,7 +12,7 @@ There are 4 groups of month names in Arabic.
 
 The **Syriac** names of months are used in Syria Palestine Lebanon, Jordan and Iraq:
 
-> <p style=dir=rtl>كانون الثاني، شباط، آذار، نيسان، أيار، حزيران، تموز، آب، أيلول، تشرين الأول، تشرين الثاني، كانون الأول.</p>
+> <p dir="rtl">كانون الثاني، شباط، آذار، نيسان، أيار، حزيران، تموز، آب، أيلول، تشرين الأول، تشرين الثاني، كانون الأول.</p>
 
 ### Roman names (group 1):
 
@@ -97,21 +97,21 @@ print(syria_date_fromat_easter) # output ١٦ آب ١٩٨٠
 > In order for the arabic date to appear properly especially, if it uses western arabic numeral the direction of the text in the interface you are using must be `right to left`. If you insert the date into an `HTML` elemnt set text direction to `rtl`. If the text direction in the whole `HTML` document is set `rtl` you should be OK.
 
 ```html
-<p style="dir: rtl">16 آب 1980</p>
-<p style="dir: rtl">16 أوت 1980</p>
+<p dir="rtl">16 آب 1980</p>
+<p dir="rtl">16 أوت 1980</p>
 ```
 
 > The resut will look like this:
 >
-> <p style=dir=rtl>16 آب 1980</p>
-> <p style=dir=rtl>16 أوت 1980</p>
+> <p dir="rtl">16 آب 1980</p>
+> <p dir="rtl">16 أوت 1980</p>
 
 #### A dual date name method
 
 It's very common that two month names are used at the same time to display the date in arabic with the second one put between parentheses, like this:
 
-> <p style=dir=rtl>16 آب (أغسطس) 1980</p>
-> <p style=dir=rtl>١٦ آب (أغسطس) ١٩٨٠</p>
+> <p dir="rtl">16 آب (أغسطس) 1980</p>
+> <p dir="rtl">١٦ آب (أغسطس) ١٩٨٠</p>
 
 To get the Arabic date formated like this, use the `dual_names` method:
 
@@ -230,14 +230,14 @@ print(arabic_time.time("HM", "/")) # output ١٢/٣٠
 > As explained above, make sure that the direction of the text in which the Arabic time is inserted is `right to left`.
 
 ```html
-<p style="dir: rtl">١٢:٣٠:٤٥</p>
-<p style="dir: rtl">الساعة حالياً: ١٢:٣٠:٤٥</p>
+<p dir="rtl">١٢:٣٠:٤٥</p>
+<p dir="rtl">الساعة حالياً: ١٢:٣٠:٤٥</p>
 ```
 
 > The resut will look like this:
 >
-> <p style=dir=rtl>١٢:٣٠:٤٥</p>
-> <p style=dir=rtl>الساعة حالياً: ١٢:٣٠:٤٥</p>
+> <p dir="rtl">١٢:٣٠:٤٥</p>
+> <p dir="rtl">الساعة حالياً: ١٢:٣٠:٤٥</p>
 
 ## License
 
