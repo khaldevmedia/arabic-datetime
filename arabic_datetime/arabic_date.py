@@ -5,7 +5,7 @@ import datetime
 from . constants import MONTH_GROUPS, AR_NUMS
 
 
-class Arabic_Date:
+class ArabicDate:
     def __init__(self, date_object: Union[datetime.date, datetime.datetime]) -> None:
         if not isinstance(date_object, datetime.date) and not isinstance(date_object, datetime.datetime):
             raise TypeError(
