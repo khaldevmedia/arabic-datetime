@@ -5,7 +5,7 @@ import datetime
 from . constants import AR_NUMS
 
 
-class ArabicTime:
+class Arabic_Time:
     def __init__(self, time_object: Union[datetime.time, datetime.datetime]) -> None:
         if not isinstance(time_object, datetime.time) and not isinstance(time_object, datetime.datetime):
             raise TypeError(
