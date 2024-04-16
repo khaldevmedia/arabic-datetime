@@ -5,11 +5,11 @@ import datetime
 from . constants import MONTH_GROUPS, AR_NUMS
 
 
-class Arabic_Date:
+class ArabicDate:
     def __init__(self, date_object: Union[datetime.date, datetime.datetime]) -> None:
         if not isinstance(date_object, datetime.date) and not isinstance(date_object, datetime.datetime):
             raise TypeError(
-                "Arabic_Date class error: The parameter provided to the instance is not a datetime.date object nor a datetime.datetime object.")
+                "ArabicDate class error: The parameter provided to the instance is not a datetime.date object nor a datetime.datetime object.")
 
         self.date_object = date_object
 
@@ -25,7 +25,7 @@ class Arabic_Date:
     def syriac_names(self, east_nums: bool = False) -> str:
         if not isinstance(east_nums, bool):
             raise TypeError(
-                f"Arabic_Date class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the class method '{self.syriac_names.__name__}'.")
+                f"ArabicDate class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the class method '{self.syriac_names.__name__}'.")
 
         if east_nums:
             return self.__day.translate(self.num_trans_table) + " " + MONTH_GROUPS["syriac"]["months"][self.__month-1] + " " + self.__year.translate(self.num_trans_table)
@@ -35,7 +35,7 @@ class Arabic_Date:
     def roman1_names(self, east_nums: bool = False) -> str:
         if not isinstance(east_nums, bool):
             raise TypeError(
-                f"Arabic_Date class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the class method '{self.roman1_names.__name__}'.")
+                f"ArabicDate class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the class method '{self.roman1_names.__name__}'.")
 
         if east_nums:
             return self.__day.translate(self.num_trans_table) + " " + MONTH_GROUPS["roman1"]["months"][self.__month-1] + " " + self.__year.translate(self.num_trans_table)
@@ -45,7 +45,7 @@ class Arabic_Date:
     def roman2_names(self, east_nums: bool = False) -> str:
         if not isinstance(east_nums, bool):
             raise TypeError(
-                f"Arabic_Date class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the class method '{self.roman2_names.__name__}'.")
+                f"ArabicDate class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the class method '{self.roman2_names.__name__}'.")
 
         if east_nums:
             return self.__day.translate(self.num_trans_table) + " " + MONTH_GROUPS["roman2"]["months"][self.__month-1] + " " + self.__year.translate(self.num_trans_table)
@@ -55,7 +55,7 @@ class Arabic_Date:
     def french_names(self, east_nums: bool = False) -> str:
         if not isinstance(east_nums, bool):
             raise TypeError(
-                f"Arabic_Date class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the class method '{self.french_names.__name__}'.")
+                f"ArabicDate class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the class method '{self.french_names.__name__}'.")
 
         if east_nums:
             return self.__day.translate(self.num_trans_table) + " " + MONTH_GROUPS["french"]["months"][self.__month-1] + " " + self.__year.translate(self.num_trans_table)
@@ -66,17 +66,17 @@ class Arabic_Date:
     def dual_names(self, first: str, second: str, east_nums: bool = False) -> str:
         if not isinstance(first, str):
             raise TypeError(
-                f"Arabic_Date class error: Unknown month group name: '{first}' passed as a parameter to the method '{self.dual_names.__name__}'.")
+                f"ArabicDate class error: Unknown month group name: '{first}' passed as a parameter to the method '{self.dual_names.__name__}'.")
         elif not isinstance(second, str):
             raise TypeError(
-                f"Arabic_Date class error: Unknown month group name: '{second}' passed as a parameter to the method '{self.dual_names.__name__}'.")
+                f"ArabicDate class error: Unknown month group name: '{second}' passed as a parameter to the method '{self.dual_names.__name__}'.")
         elif not isinstance(east_nums, bool):
             raise TypeError(
-                f"Arabic_Date class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the method '{self.dual_names.__name__}'.")
+                f"ArabicDate class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the method '{self.dual_names.__name__}'.")
 
         if first.strip().lower() == second.strip().lower():
             raise ValueError(
-                f"Arabic_Date class error: The first group name and the second group name sould not be identicial: '{first}' was passed as the first and the second parameter to the method {self.dual_names.__name__}. Note that these particular parameters are not case sensitive.")
+                f"ArabicDate class error: The first group name and the second group name sould not be identicial: '{first}' was passed as the first and the second parameter to the method {self.dual_names.__name__}. Note that these particular parameters are not case sensitive.")
         valid_first_group = False
         valid_second_group = False
         for group, _ in MONTH_GROUPS.items():
@@ -98,7 +98,7 @@ class Arabic_Date:
                     error_submessage += f" and also unknown second groupe name '{
                         second}'"
             raise ValueError(
-                f"Arabic_Date class error: {error_submessage} in the parameters passed to the method '{self.dual_names.__name__}'.")
+                f"ArabicDate class error: {error_submessage} in the parameters passed to the method '{self.dual_names.__name__}'.")
 
         if east_nums == True:
             return self.__day.translate(self.num_trans_table) + " " + MONTH_GROUPS[first]["months"][self.__month-1] + " (" + MONTH_GROUPS[second]["months"][self.__month-1] + ") " + self.__year.translate(self.num_trans_table)
@@ -109,11 +109,11 @@ class Arabic_Date:
     def by_country_code(self, country_code: str, east_nums: bool = None) -> str:
         if not isinstance(country_code, str):
             raise TypeError(
-                f"Arabic_Date class error: The 'country_code' parameter passed to the class method '{self.by_country_code.__name__}' is not a string.")
+                f"ArabicDate class error: The 'country_code' parameter passed to the class method '{self.by_country_code.__name__}' is not a string.")
 
         elif east_nums is not None and not isinstance(east_nums, bool):
             raise TypeError(
-                f"Arabic_Date class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the class method '{self.french_names.__name__}'.")
+                f"ArabicDate class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the class method '{self.french_names.__name__}'.")
 
         for _, group in MONTH_GROUPS.items():
             if country_code.upper() in group["countries"]:
@@ -129,11 +129,11 @@ class Arabic_Date:
 
         else:
             raise ValueError(
-                f"Arabic_Date class error: Unknown country code '{country_code}' passed to the class method '{self.by_country_code.__name__}'.")
+                f"ArabicDate class error: Unknown country code '{country_code}' passed to the class method '{self.by_country_code.__name__}'.")
 
     # Eastern Numeric Date Method
     def eastern_numeric_date(self, separator: str = "/") -> str:
         if not isinstance(separator, str):
             raise TypeError(
-                f"Arabic_Date class error: The 'separator' parameter passed to the class method '{self.eastern_numeric_date.__name__}' is not a string.")
+                f"ArabicDate class error: The 'separator' parameter passed to the class method '{self.eastern_numeric_date.__name__}' is not a string.")
         return self.__day.translate(self.num_trans_table) + separator + str(self.__month).translate(self.num_trans_table) + separator + self.__year.translate(self.num_trans_table)

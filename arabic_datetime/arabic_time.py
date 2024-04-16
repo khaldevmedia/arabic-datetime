@@ -5,11 +5,11 @@ import datetime
 from . constants import AR_NUMS
 
 
-class Arabic_Time:
+class ArabicTime:
     def __init__(self, time_object: Union[datetime.time, datetime.datetime]) -> None:
         if not isinstance(time_object, datetime.time) and not isinstance(time_object, datetime.datetime):
             raise TypeError(
-                f"Arabic_Time class error: The parameter passed to the instance is not a datetime.time object nor a datetime.datetime object.")
+                f"ArabicTime class error: The parameter passed to the instance is not a datetime.time object nor a datetime.datetime object.")
 
         self.time_object = time_object
 
@@ -25,14 +25,14 @@ class Arabic_Time:
     def time(self, format: str = "HMS", separator: str = ":") -> str:
         if not isinstance(format, str):
             raise TypeError(
-                f"Arabic_Date class error: The 'format' parameter passed to the class method '{self.time.__name__}' is not a string.")
+                f"ArabicDate class error: The 'format' parameter passed to the class method '{self.time.__name__}' is not a string.")
         elif not isinstance(separator, str):
             raise TypeError(
-                f"Arabic_Date class error: The 'separator' parameter passed to the class method '{self.time.__name__}' is not a string.")
+                f"ArabicDate class error: The 'separator' parameter passed to the class method '{self.time.__name__}' is not a string.")
 
         if format.upper() not in ["H", "HM", "HMS", "HMSF"]:
             raise ValueError(
-                f"Arabic_Date class error: Invalid format string passed to the class method '{self.time.__name__}'. Valid values are 'HMSF', 'HMS', 'HM' and 'H'.")
+                f"ArabicDate class error: Invalid format string passed to the class method '{self.time.__name__}'. Valid values are 'HMSF', 'HMS', 'HM' and 'H'.")
 
         time_elements = []
         if "H" in format.upper():
