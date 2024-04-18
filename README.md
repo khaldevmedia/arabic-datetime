@@ -2,6 +2,8 @@
 
 _Author_: Khaldevmedia
 
+_Version_: 0.1.2
+
 _Description_: A python installable package that helps you output dates in Arabic as strings with a formatting that is specific to each Arab county.
 
 ## Using The Package for Date Formatting
