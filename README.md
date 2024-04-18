@@ -4,6 +4,11 @@ _Author_: Khaldevmedia
 
 _Description_: A python installable package that helps you output dates in Arabic as strings with a formatting that is specific to each Arab county.
 
+## Using The Package for Date Formatting
+
+This Python package is designed to simplify Arabic date formating in your project by providing easy-to-use date formatting features.
+For example it can be used to simplify your backend operations. Instead of installing a full internationalization package in your backend, you can use this package to display Arabic dates formatted according to local settings wheather the reponse content type is HTML or json. It's lightweight, efficient, and easy to integrate into your existing project. By using this package, you can keep your backend lean and focused, while still delivering a localized user experience.
+
 ## Month names in Arabic
 
 There are 4 groups of month names in Arabic.
@@ -12,25 +17,25 @@ There are 4 groups of month names in Arabic.
 
 The **Syriac** names of months are used in Syria Palestine Lebanon, Jordan and Iraq:
 
-> <p style=dir=rtl>كانون الثاني، شباط، آذار، نيسان، أيار، حزيران، تموز، آب، أيلول، تشرين الأول، تشرين الثاني، كانون الأول.</p>
+> <p dir="rtl">كانون الثاني، شباط، آذار، نيسان، أيار، حزيران، تموز، آب، أيلول، تشرين الأول، تشرين الثاني، كانون الأول.</p>
 
 ### Roman names (group 1):
 
 The **Roman names (group 1)** of months are used in Egypt, Yemen, Sudan, Libya, Djibouti, Comoro, Somalia, Saudi Arabia, United Arab Emirates, Qatar, Oman, Bahrain and Kuwait:
 
-> <p style=dir=rtl>يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر، ديسمبر.</p>
+> <p dir="rtl">يناير، فبراير، مارس، أبريل، مايو، يونيو، يوليو، أغسطس، سبتمبر، أكتوبر، نوفمبر، ديسمبر.</p>
 
 ### Roman names (group 2):
 
 The **Roman names (group 2)** of months are used in Morocco and Mauritania:
 
-> <p style=dir=rtl>يناير، فبراير، مارس، أبريل، ماي، يونيو، يوليوز، غشت، شتنبر، أكتوبر، نونبر، دجنبر.</p>
+> <p dir="rtl">يناير، فبراير، مارس، أبريل، ماي، يونيو، يوليوز، غشت، شتنبر، أكتوبر، نونبر، دجنبر.</p>
 
 ### French names:
 
 The **French** names of months are used in Algeria and Tunisia:
 
-> <p style=dir=rtl>جانفي، فيفري، مارس، أفريل، ماي، جوان، جويلية، أوت، سبتمبر، أكتوبر، نوفمبر، ديسمبر.</p>
+> <p dir="rtl">جانفي، فيفري، مارس، أفريل، ماي، جوان، جويلية، أوت، سبتمبر، أكتوبر، نوفمبر، ديسمبر.</p>
 
 ## Arabic Numerals
 
@@ -58,7 +63,7 @@ You can use the eastern or the western Arabic numerals regardless of the month n
 pip install arabic-datetime
 ```
 
-## Example & Usage
+## Examples
 
 ### 1. Date
 
@@ -97,21 +102,21 @@ print(syria_date_fromat_easter) # output ١٦ آب ١٩٨٠
 > In order for the arabic date to appear properly especially, if it uses western arabic numeral the direction of the text in the interface you are using must be `right to left`. If you insert the date into an `HTML` elemnt set text direction to `rtl`. If the text direction in the whole `HTML` document is set `rtl` you should be OK.
 
 ```html
-<p style="dir: rtl">16 آب 1980</p>
-<p style="dir: rtl">16 أوت 1980</p>
+<p dir="rtl">16 آب 1980</p>
+<p dir="rtl">16 أوت 1980</p>
 ```
 
 > The resut will look like this:
 >
-> <p style=dir=rtl>16 آب 1980</p>
-> <p style=dir=rtl>16 أوت 1980</p>
+> <p dir="rtl">16 آب 1980</p>
+> <p dir="rtl">16 أوت 1980</p>
 
 #### A dual date name method
 
 It's very common that two month names are used at the same time to display the date in arabic with the second one put between parentheses, like this:
 
-> <p style=dir=rtl>16 آب (أغسطس) 1980</p>
-> <p style=dir=rtl>١٦ آب (أغسطس) ١٩٨٠</p>
+> <p dir="rtl">16 آب (أغسطس) 1980</p>
+> <p dir="rtl">١٦ آب (أغسطس) ١٩٨٠</p>
 
 To get the Arabic date formated like this, use the `dual_names` method:
 
@@ -230,14 +235,14 @@ print(arabic_time.time("HM", "/")) # output ١٢/٣٠
 > As explained above, make sure that the direction of the text in which the Arabic time is inserted is `right to left`.
 
 ```html
-<p style="dir: rtl">١٢:٣٠:٤٥</p>
-<p style="dir: rtl">الساعة حالياً: ١٢:٣٠:٤٥</p>
+<p dir="rtl">١٢:٣٠:٤٥</p>
+<p dir="rtl">الساعة حالياً: ١٢:٣٠:٤٥</p>
 ```
 
 > The resut will look like this:
 >
-> <p style=dir=rtl>١٢:٣٠:٤٥</p>
-> <p style=dir=rtl>الساعة حالياً: ١٢:٣٠:٤٥</p>
+> <p dir="rtl">١٢:٣٠:٤٥</p>
+> <p dir="rtl">الساعة حالياً: ١٢:٣٠:٤٥</p>
 
 ## License
 

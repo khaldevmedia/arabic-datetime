@@ -2,15 +2,12 @@ from typing import Union
 import datetime
 
 # Import constants
-from . constants import MONTH_GROUPS, AR_NUMS
+from ._constants import MONTH_GROUPS, AR_NUMS
 
 
 class ArabicDate:
-    def __init__(self, date_object: Union[datetime.date, datetime.datetime]) -> None:
-        if not isinstance(date_object, datetime.date) and not isinstance(date_object, datetime.datetime):
-            raise TypeError(
-                "ArabicDate class error: The parameter provided to the instance is not a datetime.date object nor a datetime.datetime object.")
-
+    def __init__(self, date_object: Union[datetime.date, datetime.datetime] = None) -> None:
+        self._date_object = None
         self.date_object = date_object
 
         self.__year = str(self.date_object.year)
@@ -21,11 +18,25 @@ class ArabicDate:
         # string keys in translate table must be of length 1
         self.num_trans_table = str.maketrans(AR_NUMS)
 
+    @property
+    def date_object(self):
+        return self._date_object
+
+    @date_object.setter
+    def date_object(self, value: Union[datetime.date, datetime.datetime] = None) -> None:
+        if value == None:
+            raise TypeError(
+                f"ArabicDate class error: No parameter was passed as date_object or the parameter passed is None. Only datetime.date or datetime.datetime objects are allowed.")
+        elif not isinstance(value, datetime.date) and not isinstance(value, datetime.datetime):
+            raise TypeError(
+                f"ArabicDate class error: The parameter passed as date_object is of type {type(value)}. Only datetime.date or datetime.datetime objects are allowed.")
+        self._date_object = value
+
     # Group Name Methods
     def syriac_names(self, east_nums: bool = False) -> str:
         if not isinstance(east_nums, bool):
             raise TypeError(
-                f"ArabicDate class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the class method '{self.syriac_names.__name__}'.")
+                f"ArabicDate class error: east_nums must be a boolean. '{east_nums}' is not a boolean and was passed to the class method '{self.syriac_names.__name__}'.")
 
         if east_nums:
             return self.__day.translate(self.num_trans_table) + " " + MONTH_GROUPS["syriac"]["months"][self.__month-1] + " " + self.__year.translate(self.num_trans_table)
@@ -35,7 +46,7 @@ class ArabicDate:
     def roman1_names(self, east_nums: bool = False) -> str:
         if not isinstance(east_nums, bool):
             raise TypeError(
-                f"ArabicDate class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the class method '{self.roman1_names.__name__}'.")
+                f"ArabicDate class error: east_nums must be a boolean. '{east_nums}' is not a boolean and was passed to the class method '{self.roman1_names.__name__}'.")
 
         if east_nums:
             return self.__day.translate(self.num_trans_table) + " " + MONTH_GROUPS["roman1"]["months"][self.__month-1] + " " + self.__year.translate(self.num_trans_table)
@@ -45,7 +56,7 @@ class ArabicDate:
     def roman2_names(self, east_nums: bool = False) -> str:
         if not isinstance(east_nums, bool):
             raise TypeError(
-                f"ArabicDate class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the class method '{self.roman2_names.__name__}'.")
+                f"ArabicDate class error: east_nums must be a boolean. '{east_nums}' is not a boolean and was passed to the class method '{self.roman2_names.__name__}'.")
 
         if east_nums:
             return self.__day.translate(self.num_trans_table) + " " + MONTH_GROUPS["roman2"]["months"][self.__month-1] + " " + self.__year.translate(self.num_trans_table)
@@ -55,7 +66,7 @@ class ArabicDate:
     def french_names(self, east_nums: bool = False) -> str:
         if not isinstance(east_nums, bool):
             raise TypeError(
-                f"ArabicDate class error: east_nums must be a boolean. '{east_nums}' is not boolean and was passed to the class method '{self.french_names.__name__}'.")
+                f"ArabicDate class error: east_nums must be a boolean. '{east_nums}' is not a boolean and was passed to the class method '{self.french_names.__name__}'.")
 
         if east_nums:
             return self.__day.translate(self.num_trans_table) + " " + MONTH_GROUPS["french"]["months"][self.__month-1] + " " + self.__year.translate(self.num_trans_table)
