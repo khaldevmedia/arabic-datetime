@@ -4,12 +4,12 @@ _Author_: Khaldevmedia
 
 _Version_: 0.1.2
 
-_Description_: A python installable package that helps you output dates in Arabic as strings with a formatting that is specific to each Arab county.
+_Description_: A Python installable package that helps you output dates in Arabic as strings, with formatting specific to each Arab country.
 
 ## Using The Package for Date Formatting
 
-This Python package is designed to simplify Arabic date formating in your project by providing easy-to-use date formatting features.
-For example it can be used to simplify your backend operations. Instead of installing a full internationalization package in your backend, you can use this package to display Arabic dates formatted according to local settings wheather the reponse content type is HTML or json. It's lightweight, efficient, and easy to integrate into your existing project. By using this package, you can keep your backend lean and focused, while still delivering a localized user experience.
+This Python package is designed to simplify Arabic date formatting in your project by providing easy-to-use date formatting functions.
+For example, it can be used to simplify your backend operations. Instead of installing a full internationalisation package in your backend, you can use this package to display Arabic dates formatted according to local settings, whether the response content type is HTML or Json. It's lightweight, efficient and easy to integrate into your existing project. By using this package, you can keep your backend lean and focused, while still providing a localised user experience.
 
 ## Month names in Arabic
 
@@ -17,7 +17,7 @@ There are 4 groups of month names in Arabic.
 
 ### Syriac names:
 
-The **Syriac** names of months are used in Syria Palestine Lebanon, Jordan and Iraq:
+The **Syriac** names of months are used in Syria, Palestine Lebanon, Jordan and Iraq:
 
 > <p dir="rtl">كانون الثاني، شباط، آذار، نيسان، أيار، حزيران، تموز، آب، أيلول، تشرين الأول، تشرين الثاني، كانون الأول.</p>
 
@@ -45,13 +45,13 @@ There are two groups of **Arabic numerals** used in the Arab countries.
 
 ### Eastern Arabic Numerals
 
-They are used in all Arabe countries except Algeria, Tunisia, Morocco and Mauritania:
+They are used in all Arab countries except Algeria, Tunisia, Morocco and Mauritania:
 
 > ٠ ١ ٢ ٣ ٤ ٥ ٦ ٧ ٨ ٩
 
 ### Western Arabic Numerals
 
-They are used in Algeria, Tunisia, Morocco and Mauritania. However, they are also used in the other Arabe countries that use the eastern Arabic numerals:
+They are used in Algeria, Tunisia, Morocco and Mauritania. However, they are also used in the other Arab countries that use the eastern Arabic numerals:
 
 > 0 1 2 3 4 5 6 7 8 9
 
@@ -69,7 +69,7 @@ pip install arabic-datetime
 
 ### 1. Date
 
-The ArabicDate class has several methods that return a date object as string using.
+The ArabicDate class has several methods that return a arabic date as string.
 
 #### A specific method for every month names group
 
@@ -101,14 +101,14 @@ print(syria_date_fromat_easter) # output ١٦ آب ١٩٨٠
 >
 > When you combine Western arabic numerals or western ponctuations with arabic characters they appear messed up if the text direction in the target is set to `left to right` or `dir=ltr` in `HTML`.
 >
-> In order for the arabic date to appear properly especially, if it uses western arabic numeral the direction of the text in the interface you are using must be `right to left`. If you insert the date into an `HTML` elemnt set text direction to `rtl`. If the text direction in the whole `HTML` document is set `rtl` you should be OK.
+> In order for the arabic date to appear properly especially, if it uses western arabic numeral the direction of the text in the interface you are using must be `right to left`. If you insert the date into an `HTML` element set text direction to `rtl`. If the text direction in the whole `HTML` document is set to `rtl` you should be OK.
 
 ```html
 <p dir="rtl">16 آب 1980</p>
 <p dir="rtl">16 أوت 1980</p>
 ```
 
-> The resut will look like this:
+> The result will look like this:
 >
 > <p dir="rtl">16 آب 1980</p>
 > <p dir="rtl">16 أوت 1980</p>
@@ -120,7 +120,7 @@ It's very common that two month names are used at the same time to display the d
 > <p dir="rtl">16 آب (أغسطس) 1980</p>
 > <p dir="rtl">١٦ آب (أغسطس) ١٩٨٠</p>
 
-To get the Arabic date formated like this, use the `dual_names` method:
+To get the Arabic date formatted like this, use the `dual_names` method:
 
 ```python
 import datetime
@@ -211,7 +211,7 @@ YE: Yemen
 
 ### 2. Time
 
-The ArabicTime class has one method that returns a time object as a string using the Eastern Arabic numerals. It takes two parameters: `format` with default value as `"HMS"` and `separator` with default value as `":"`.
+The ArabicTime class has one method that returns arabic time a string using the Eastern Arabic numerals. It takes two parameters: `format` with default value as `"HMS"` and `separator` with default value as `":"`.
 
 ```python
 import datetime
@@ -241,7 +241,7 @@ print(arabic_time.time("HM", "/")) # output ١٢/٣٠
 <p dir="rtl">الساعة حالياً: ١٢:٣٠:٤٥</p>
 ```
 
-> The resut will look like this:
+> The result will look like this:
 >
 > <p dir="rtl">١٢:٣٠:٤٥</p>
 > <p dir="rtl">الساعة حالياً: ١٢:٣٠:٤٥</p>
