@@ -69,17 +69,17 @@ pip install arabic-datetime
 
 ### 1. Date
 
-The Arabic_Date class has several methods that return a date object as string using.
+The ArabicDate class has several methods that return a date object as string using.
 
 #### A specific method for every month names group
 
 ```python
 import datetime
-from arabic_datetime import Arabic_Date
+from arabic_datetime import ArabicDate
 
 # Create arabic_date object from a python date object
 dt = datetime.date(1980, 8, 16)
-arabic_date = Arabic_Date(dt)
+arabic_date = ArabicDate(dt)
 
 # Use each method to creat the arabic date strings
 syria_date_fromat = arabic_date.syriac_names()
@@ -124,11 +124,11 @@ To get the Arabic date formated like this, use the `dual_names` method:
 
 ```python
 import datetime
-from arabic_datetime import Arabic_Date
+from arabic_datetime import ArabicDate
 
 # Create arabic_date object from a python date object
 dt = datetime.date(1980, 8, 16)
-arabic_date = Arabic_Date(dt)
+arabic_date = ArabicDate(dt)
 
 # Use the dual_names() method to return Arabic date string that shows two names of the month.
 # This method takes 3 arguments: 2 strings for the month group names  (the second one
@@ -160,11 +160,11 @@ print(dual_date_sy_ro) # output ١٦ آب (أغسطس) ١٩٨٠
 
 ```python
 import datetime
-from arabic_datetime import Arabic_Date
+from arabic_datetime import ArabicDate
 
 # Create arabic_date object from a python date object
 dt = datetime.date(1980, 8, 16)
-arabic_date = Arabic_Date(dt)
+arabic_date = ArabicDate(dt)
 
 # Use of by_country_code() method. It takes country_code as a string
 # If you don't pass True or False besides the county code string
@@ -211,13 +211,13 @@ YE: Yemen
 
 ### 2. Time
 
-The Arabic_Time class has one method that returns a time object as a string using the Eastern Arabic numerals. It takes two parameters: `format` with default value as `"HMS"` and `separator` with default value as `":"`.
+The ArabicTime class has one method that returns a time object as a string using the Eastern Arabic numerals. It takes two parameters: `format` with default value as `"HMS"` and `separator` with default value as `":"`.
 
 ```python
 import datetime
-from arabic_datetime import Arabic_Time
+from arabic_datetime import ArabicTime
 dt = datetime.time(12, 30, 45)
-arabic_time = Arabic_Time(dt)
+arabic_time = ArabicTime(dt)
 print(arabic_time.time("HMS")) # output ١٢:٣٠:٤٥
 print(arabic_time.time("HM")) # output ١٢:٣٠
 print(arabic_time.time("HM", "/")) # output ١٢/٣٠
